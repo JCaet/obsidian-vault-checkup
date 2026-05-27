@@ -1,0 +1,15 @@
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor state
+.vscode/
+.idea/
+*.swp
+*~
+
+# Local test artifacts (if anyone runs the probes against a sample vault here)
+/tmp/
+/sandbox/
+*.log

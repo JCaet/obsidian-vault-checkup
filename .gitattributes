@@ -1,0 +1,8 @@
+# Default: treat as text, normalize to LF in the repo.
+* text=auto eol=lf
+
+# Shell scripts must keep LF on every platform — CRLF breaks the shebang on Linux/macOS.
+*.sh text eol=lf
+
+# Windows-native scripts (none yet, but reserve the convention) keep CRLF.
+*.{bat,cmd,ps1} text eol=crlf
