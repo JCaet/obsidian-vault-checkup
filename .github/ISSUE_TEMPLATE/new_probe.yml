@@ -1,0 +1,46 @@
+name: New plugin probe
+description: Propose a usage probe for a community plugin not yet in the catalogue.
+labels: ["probe"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Probes are the reusable core of this skill. A good probe finds *evidence* of use
+        in a vault, not just the plugin's presence. See `probes/usage-probes.md` for the format.
+  - type: input
+    id: plugin-id
+    attributes:
+      label: Plugin ID
+      description: The plugin's folder name under `.obsidian/plugins/` (its manifest `id`).
+      placeholder: "dataview"
+    validations:
+      required: true
+  - type: input
+    id: what-it-does
+    attributes:
+      label: What it does
+      description: One line.
+    validations:
+      required: true
+  - type: textarea
+    id: probe
+    attributes:
+      label: Probe
+      description: A shell command or search pattern that detects in-vault usage.
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: active-when
+    attributes:
+      label: Active when
+      description: What counts as a positive signal (the plugin is actually used)?
+    validations:
+      required: true
+  - type: input
+    id: replacement
+    attributes:
+      label: Replacement when inactive
+      description: Core feature or alternative plugin that covers this, if any.
+    validations:
+      required: false

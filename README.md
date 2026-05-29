@@ -20,11 +20,13 @@ The skill never deletes anything without confirmation. You always make the keep/
 This is a Claude Code skill. Drop it where Claude Code looks for skills:
 
 **macOS / Linux:**
+
 ```bash
 git clone https://github.com/JCaet/obsidian-vault-checkup ~/.claude/skills/obsidian-vault-checkup
 ```
 
 **Windows (PowerShell, as administrator for symlinks):**
+
 ```powershell
 git clone https://github.com/JCaet/obsidian-vault-checkup D:\Projects\obsidian-vault-checkup
 New-Item -ItemType SymbolicLink `
