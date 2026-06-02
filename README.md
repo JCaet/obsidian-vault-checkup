@@ -17,14 +17,14 @@ The skill never deletes anything without confirmation. You always make the keep/
 
 ## Install
 
-This is a Claude Code plugin distributed from its own one-plugin marketplace. Add the marketplace, then install:
+This is a Claude Code plugin distributed from a marketplace. Add the marketplace, then install:
 
 ```bash
 claude plugin marketplace add JCaet/obsidian-vault-checkup
-claude plugin install obsidian-vault-checkup@obsidian-vault-checkup
+claude plugin install obsidian-vault-checkup@jcaet-plugins
 ```
 
-The first argument to `install` is the plugin name; the part after `@` is the marketplace name (both happen to match the repo).
+The first argument to `install` is the plugin name (`obsidian-vault-checkup`); the part after `@` is the marketplace name (`jcaet-plugins`).
 
 ### Local development
 
@@ -33,8 +33,31 @@ To work on the plugin from a local clone, add the working tree as a marketplace 
 ```bash
 git clone https://github.com/JCaet/obsidian-vault-checkup
 claude plugin marketplace add ./obsidian-vault-checkup
-claude plugin install obsidian-vault-checkup@obsidian-vault-checkup
+claude plugin install obsidian-vault-checkup@jcaet-plugins
 ```
+
+### Use as a plain skill (without the plugin)
+
+The plugin is just a wrapper — the skill folder under `skills/obsidian-vault-checkup/` is fully self-contained (SKILL.md plus its `playbook/`, `probes/`, and `templates/`, all referenced by relative paths). You can drop that inner folder straight into a skills directory and skip the marketplace entirely:
+
+**macOS / Linux:**
+
+```bash
+git clone https://github.com/JCaet/obsidian-vault-checkup
+ln -s "$PWD/obsidian-vault-checkup/skills/obsidian-vault-checkup" \
+  ~/.claude/skills/obsidian-vault-checkup
+```
+
+**Windows (PowerShell, as administrator for symlinks):**
+
+```powershell
+git clone https://github.com/JCaet/obsidian-vault-checkup
+New-Item -ItemType SymbolicLink `
+  -Path "$env:USERPROFILE\.claude\skills\obsidian-vault-checkup" `
+  -Target "$PWD\obsidian-vault-checkup\skills\obsidian-vault-checkup"
+```
+
+Point the skills directory at the **inner** `skills/obsidian-vault-checkup/` folder (the one containing `SKILL.md`), not the repo root. Copying the folder works too if you'd rather not symlink. Invoked this way the skill is `/obsidian-vault-checkup` (no plugin namespace).
 
 ## Invoke
 

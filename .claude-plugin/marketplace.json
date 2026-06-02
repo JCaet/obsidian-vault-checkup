@@ -1,6 +1,6 @@
 {
-  "name": "obsidian-vault-checkup",
-  "description": "Marketplace for the obsidian-vault-checkup plugin — a phased, evidence-driven audit for Obsidian vaults.",
+  "name": "jcaet-plugins",
+  "description": "João Caetano's Claude Code plugin marketplace.",
   "owner": {
     "name": "João Caetano"
   },
