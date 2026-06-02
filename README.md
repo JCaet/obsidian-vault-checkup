@@ -1,6 +1,6 @@
 # obsidian-vault-checkup
 
-A reusable Claude Code skill for auditing Obsidian vaults — works across vaults, ages well across Obsidian releases, leaves an append-only decision log behind so the next checkup builds on the last.
+A reusable Claude Code plugin for auditing Obsidian vaults — works across vaults, ages well across Obsidian releases, leaves an append-only decision log behind so the next checkup builds on the last. The plugin ships a single skill of the same name.
 
 ## What it does
 
@@ -17,34 +17,34 @@ The skill never deletes anything without confirmation. You always make the keep/
 
 ## Install
 
-This is a Claude Code skill. Drop it where Claude Code looks for skills:
-
-**macOS / Linux:**
+This is a Claude Code plugin distributed from its own one-plugin marketplace. Add the marketplace, then install:
 
 ```bash
-git clone https://github.com/JCaet/obsidian-vault-checkup ~/.claude/skills/obsidian-vault-checkup
+claude plugin marketplace add JCaet/obsidian-vault-checkup
+claude plugin install obsidian-vault-checkup@obsidian-vault-checkup
 ```
 
-**Windows (PowerShell, as administrator for symlinks):**
+The first argument to `install` is the plugin name; the part after `@` is the marketplace name (both happen to match the repo).
 
-```powershell
-git clone https://github.com/JCaet/obsidian-vault-checkup D:\Projects\obsidian-vault-checkup
-New-Item -ItemType SymbolicLink `
-  -Path "$env:USERPROFILE\.claude\skills\obsidian-vault-checkup" `
-  -Target "D:\Projects\obsidian-vault-checkup"
+### Local development
+
+To work on the plugin from a local clone, add the working tree as a marketplace by path:
+
+```bash
+git clone https://github.com/JCaet/obsidian-vault-checkup
+claude plugin marketplace add ./obsidian-vault-checkup
+claude plugin install obsidian-vault-checkup@obsidian-vault-checkup
 ```
-
-A symlink lets you keep the repo wherever you develop it while still being discoverable as a skill.
 
 ## Invoke
 
-In any Claude Code session, after the skill is installed:
+In any Claude Code session, after the plugin is installed, call the skill by its namespaced name (`plugin:skill`):
 
 ```
-/obsidian-vault-checkup
+/obsidian-vault-checkup:obsidian-vault-checkup
 ```
 
-If the conversation is already inside an Obsidian vault directory, the skill uses that. Otherwise it will ask for the vault path.
+You can also just ask Claude to "audit my Obsidian vault" — the skill's description triggers it. If the conversation is already inside an Obsidian vault directory, the skill uses that; otherwise it will ask for the vault path.
 
 ## Requirements
 
@@ -57,28 +57,34 @@ If the conversation is already inside an Obsidian vault directory, the skill use
 
 ```
 obsidian-vault-checkup/
-├── SKILL.md                # entry point — skill definition and orchestration
-├── README.md               # this file
-├── LICENSE                 # MIT
-├── playbook/               # per-phase instructions Claude follows
-│   ├── 00-overview.md
-│   ├── 10-release-review.md
-│   ├── 20-baseline-snapshot.md
-│   ├── 30-config-hygiene.md
-│   ├── 40-plugin-triage.md
-│   ├── 50-trending-discovery.md
-│   └── 60-changelog-discipline.md
-├── probes/                 # evidence-gathering scripts and catalogue
-│   ├── usage-probes.md     # per-plugin usage probes (the reusable IP)
-│   ├── snapshot-plugins.sh # markdown snapshot generator
-│   └── trending-plugins.sh # community-plugins ranker
-└── templates/
-    └── audit-log.md        # starter audit log for new vaults
+├── .claude-plugin/
+│   ├── plugin.json             # plugin manifest
+│   └── marketplace.json        # one-plugin marketplace catalog
+├── README.md                   # this file
+├── LICENSE                     # MIT
+├── CONTRIBUTING.md
+└── skills/
+    └── obsidian-vault-checkup/
+        ├── SKILL.md            # entry point — skill definition and orchestration
+        ├── playbook/           # per-phase instructions Claude follows
+        │   ├── 00-overview.md
+        │   ├── 10-release-review.md
+        │   ├── 20-baseline-snapshot.md
+        │   ├── 30-config-hygiene.md
+        │   ├── 40-plugin-triage.md
+        │   ├── 50-trending-discovery.md
+        │   └── 60-changelog-discipline.md
+        ├── probes/             # evidence-gathering scripts and catalogue
+        │   ├── usage-probes.md     # per-plugin usage probes (the reusable IP)
+        │   ├── snapshot-plugins.sh # markdown snapshot generator
+        │   └── trending-plugins.sh # community-plugins ranker
+        └── templates/
+            └── audit-log.md    # starter audit log for new vaults
 ```
 
 ## Contributing
 
-The most valuable contribution is **new probes** in `probes/usage-probes.md`. Format:
+The most valuable contribution is **new probes** in `skills/obsidian-vault-checkup/probes/usage-probes.md`. Format:
 
 ```markdown
 ## <plugin-id>

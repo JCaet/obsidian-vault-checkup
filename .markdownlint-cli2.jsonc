@@ -5,6 +5,6 @@
   },
   "ignores": [
     "**/node_modules/**",
-    "templates/audit-log.md"
+    "skills/obsidian-vault-checkup/templates/audit-log.md"
   ]
 }

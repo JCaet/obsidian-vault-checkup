@@ -1,0 +1,19 @@
+{
+  "name": "obsidian-vault-checkup",
+  "description": "Run a periodic, phased audit of an Obsidian vault: review what core absorbed since the last checkup, snapshot installed plugins, fix common config drift, triage each plugin against real in-vault usage evidence, surface relevant trending community plugins, and record every meaningful decision in a vault-resident audit log.",
+  "version": "1.0.0",
+  "author": {
+    "name": "João Caetano"
+  },
+  "homepage": "https://github.com/JCaet/obsidian-vault-checkup",
+  "repository": "https://github.com/JCaet/obsidian-vault-checkup",
+  "license": "MIT",
+  "keywords": [
+    "obsidian",
+    "vault",
+    "audit",
+    "plugins",
+    "maintenance",
+    "cleanup"
+  ]
+}

@@ -1,14 +1,16 @@
 # Contributing
 
-Thanks for helping improve **obsidian-vault-checkup**. This is a Claude Code skill, so
-"the code" is mostly Markdown instructions (`playbook/`), two Bash probes (`probes/`), and
-the probe catalogue (`probes/usage-probes.md`).
+Thanks for helping improve **obsidian-vault-checkup**. This is a Claude Code plugin wrapping
+a single skill, so "the code" is mostly Markdown instructions
+(`skills/obsidian-vault-checkup/playbook/`), two Bash probes
+(`skills/obsidian-vault-checkup/probes/`), and the probe catalogue
+(`skills/obsidian-vault-checkup/probes/usage-probes.md`).
 
 ## Most valuable contribution: new probes
 
 The probe catalogue is the reusable core of the skill. A good probe finds *evidence of use*
 inside a vault — not merely that a plugin is installed. Add entries to
-`probes/usage-probes.md` using this format:
+`skills/obsidian-vault-checkup/probes/usage-probes.md` using this format:
 
 ```markdown
 ## <plugin-id>
@@ -23,7 +25,7 @@ send a pull request directly.
 
 ## Development notes
 
-- **Shell scripts** (`probes/*.sh`) target Bash and must run on macOS, Linux, and Windows
+- **Shell scripts** (`skills/obsidian-vault-checkup/probes/*.sh`) target Bash and must run on macOS, Linux, and Windows
   Git Bash. Keep them POSIX-friendly and quote your variables — CI runs `shellcheck` on
   every push and pull request.
 - **Markdown** is linted with `markdownlint-cli2`; configuration lives in
