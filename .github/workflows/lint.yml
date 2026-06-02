@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
       # shellcheck is preinstalled on ubuntu-latest runners.
       - name: Run shellcheck on probe scripts
-        run: shellcheck --shell=bash probes/*.sh
+        run: shellcheck --shell=bash skills/obsidian-vault-checkup/probes/*.sh
 
   markdownlint:
     name: markdownlint (docs)

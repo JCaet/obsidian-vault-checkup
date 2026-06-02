@@ -1,0 +1,15 @@
+{
+  "name": "jcaet-plugins",
+  "description": "João Caetano's Claude Code plugin marketplace.",
+  "owner": {
+    "name": "João Caetano"
+  },
+  "plugins": [
+    {
+      "name": "obsidian-vault-checkup",
+      "source": "./",
+      "description": "Run a periodic, phased audit of an Obsidian vault: review what core absorbed since the last checkup, snapshot installed plugins, fix common config drift, triage each plugin against real in-vault usage evidence, surface relevant trending community plugins, and record every meaningful decision in a vault-resident audit log.",
+      "version": "1.0.0"
+    }
+  ]
+}
