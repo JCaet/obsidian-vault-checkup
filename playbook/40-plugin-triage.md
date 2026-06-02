@@ -54,5 +54,6 @@ For an enabled plugin that's *likely* replaced by core but the user isn't 100% s
 ## Trigger for trending discovery
 
 The trending phase (50) is best run *after* triage, because:
+
 - The user knows what they just removed and can think clearly about what (if anything) should replace it.
 - New plugin candidates can be cross-referenced with workflow patterns just confirmed in triage.

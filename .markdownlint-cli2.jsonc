@@ -1,0 +1,10 @@
+{
+  // Rule configuration lives in .markdownlint.json; this file only scopes globs.
+  "config": {
+    "extends": ".markdownlint.json"
+  },
+  "ignores": [
+    "**/node_modules/**",
+    "templates/audit-log.md"
+  ]
+}

@@ -1,0 +1,54 @@
+name: Bug report
+description: Something in the skill misbehaved — a phase, a probe, or the audit log.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please include enough detail to reproduce.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What did the skill do, and what did you expect instead?
+      placeholder: "During phase 40, the probe for plugin X reported … but I expected …"
+    validations:
+      required: true
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Which phase
+      description: Where in the flow did it occur?
+      options:
+        - "Pre-flight / audit-log resolution (05)"
+        - "Release review (10)"
+        - "Baseline snapshot (20)"
+        - "Config hygiene (30)"
+        - "Plugin triage (40)"
+        - "Trending discovery (50)"
+        - "Changelog discipline (60)"
+        - "Not phase-specific"
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: OS and shell
+      description: e.g. macOS 15 / zsh, Windows 11 / Git Bash, Ubuntu 24.04 / bash
+    validations:
+      required: true
+  - type: input
+    id: obsidian-version
+    attributes:
+      label: Obsidian version
+      placeholder: "1.8.x"
+    validations:
+      required: false
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant output
+      description: Probe output, error messages, or the relevant audit-log entry. Redact anything private.
+      render: text
+    validations:
+      required: false

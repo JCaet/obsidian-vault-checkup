@@ -18,6 +18,7 @@ probes/trending-plugins.sh <vault-path> [top-n]
 ```
 
 Default top-n is 15. The script:
+
 1. Fetches both JSONs to a temp dir.
 2. Joins them on `plugin-id`.
 3. Sorts by cumulative downloads (descending).

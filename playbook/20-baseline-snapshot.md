@@ -5,9 +5,11 @@
 ## Steps
 
 1. **Run the snapshot probe:**
+
    ```bash
    probes/snapshot-plugins.sh <vault-path>
    ```
+
    Output is a pair of markdown tables (enabled / disabled) with versions, ready to drop into a changelog entry.
 
 2. **Determine totals:**
